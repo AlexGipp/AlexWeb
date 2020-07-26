@@ -1,0 +1,63 @@
+﻿.text-background {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
+
+a {
+    color: white;
+}
+
+.wrapper {
+    display: inline-block;
+    margin: auto;
+    align-content: center;
+    width: 100%;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    text-align: center;
+}
+
+.grid-softwareDevelopment {
+    color: white;
+    border-radius: 5px;
+    padding: 30px;
+    background: linear-gradient(to right, #0ac282, #0df3a3);
+    font-size: 17px;
+}
+
+.grid-softwareDevelopment svg {
+        fill: white;
+        height: 35px;
+        width: 35px;
+    }
+
+.grid-design {
+    color: white;
+    border-radius: 5px;
+    padding: 30px;
+    background: linear-gradient(to right, #fe5d70, #fe909d);
+    font-size: 17px;
+}
+
+.grid-design svg {
+        fill: white;
+        height: 35px;
+        width: 35px;
+    }
+
+.grid-contact {
+    color: white;
+    border-radius: 5px;
+    padding: 30px;
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+    font-size: 17px;
+}
+
+.grid-contact svg {
+        fill: white;
+        height: 35px;
+        width: 35px;
+    }
