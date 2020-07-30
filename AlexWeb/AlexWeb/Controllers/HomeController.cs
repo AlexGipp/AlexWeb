@@ -23,6 +23,21 @@ namespace AlexWeb.Controllers
             return View();
         }
 
+        public IActionResult SoftwareDevelopment()
+        {
+            return View();
+        }
+
+        public IActionResult Design()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
