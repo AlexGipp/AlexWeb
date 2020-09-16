@@ -18,7 +18,7 @@ namespace PersonalWebsite.Github
 
         private readonly FluentClient _client;
 
-        public async Task<IEnumerable<Repo>> GetAllRepos(Type type, Sort sort)
+        public async Task<IList<Repo>> GetPublicRepos(Type type, Sort sort)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace PersonalWebsite.Github
                     .GetAsync("repos")
                     .WithArgument("type", type)
                     .WithArgument("sort", sort)
-                    .As<IEnumerable<Repo>>();
+                    .As<IList<Repo>>();
 
                 return repos;
             }

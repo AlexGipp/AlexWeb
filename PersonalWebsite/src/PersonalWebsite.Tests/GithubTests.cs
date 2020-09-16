@@ -21,10 +21,23 @@ namespace PersonalWebsite.Tests
             var client = new GithubClient("AlexGipp");
             
             //Act
-            var repos = await client.GetAllRepos(Type.Owner, Sort.Created);
+            var repos = await client.GetPublicRepos(Type.Owner, Sort.Created);
             
             //Assert
             repos.Should().NotBeNullOrEmpty();
+        }
+        
+        [Test]
+        public void GetAllRepos_InvalidUsername_ThrowError()
+        {
+            //Arrange
+            var client = new GithubClient("NotAValidUsernameHopefully");
+            
+            //Act
+            Func<Task> act = async () => { await client.GetPublicRepos(Type.Owner, Sort.Created); };
+
+            //Assert
+            act.Should().Throw<Exception>();
         }
     }
 }
