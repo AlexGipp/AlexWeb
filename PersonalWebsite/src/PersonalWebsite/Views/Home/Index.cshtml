@@ -2,14 +2,21 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    
-    <h1 class="display-4">Github Projects</h1>
-    @foreach (var repo in Model.Repos)
-    {
-        <p>@repo.Name</p>
-    }
 </div>
+<h1 class="display-4">Github Projects</h1>
+@foreach (var repo in Model.Repos)
+{
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">@repo.Name</h4>
+            <h6 class="card-subtitle mb-2 text-muted">@repo.CreatedAt.Date</h6>
+            <p class="card-text">@repo.Description</p>
+            <a href="@repo.Url" class="card-link">Github</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+}
+
