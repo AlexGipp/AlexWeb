@@ -67,6 +67,8 @@
             <e p="bootstrap" t="Include">
               <e p="dist" t="Include">
                 <e p="css" t="Include">
+                  <e p="bootstrap-flatly.css" t="Include" />
+                  <e p="bootstrap-flatly.min.css" t="Include" />
                   <e p="bootstrap-grid.css" t="Include" />
                   <e p="bootstrap-grid.css.map" t="Include" />
                   <e p="bootstrap-grid.min.css" t="Include" />
