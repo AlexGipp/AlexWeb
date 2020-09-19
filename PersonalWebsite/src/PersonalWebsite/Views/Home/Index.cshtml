@@ -12,10 +12,9 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">@repo.Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">@repo.CreatedAt.Date</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@repo.CreatedAt.Date.ToString("dd.MM.yyyy")</h6>
             <p class="card-text">@repo.Description</p>
-            <a href="@repo.Url" class="card-link">Github</a>
-            <a href="#" class="card-link">Another link</a>
+            <a href="@repo.HtmlUrl" target="_blank" class="card-link">Github</a>
         </div>
     </div>
 }
