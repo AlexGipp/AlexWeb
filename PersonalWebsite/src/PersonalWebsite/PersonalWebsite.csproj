@@ -8,10 +8,4 @@
       <ProjectReference Include="..\PersonalWebsite.Github\PersonalWebsite.Github.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-flatly.min.css">
-        <DependentUpon>bootstrap-flatly.css</DependentUpon>
-      </Content>
-    </ItemGroup>
-
 </Project>
