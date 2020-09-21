@@ -39,7 +39,14 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2020 - PersonalWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="row">
+            <div class="col">
+                &copy; @DateTime.Now.Year - PersonalWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            <div class="col text-right">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Login</a>
+            </div>
+        </div>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
