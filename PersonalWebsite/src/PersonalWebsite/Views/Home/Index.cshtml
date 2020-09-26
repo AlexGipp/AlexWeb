@@ -11,20 +11,23 @@
 <h1 class="display-4">Experience</h1>
 
 <div class="row row-cols-1 row-cols-md-3">
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="https://www.recy-systems.com/files/design-data/rsag_amcs_logo.svg" class="card-img-top p-4" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Recy Systems</h5>
-                <h6 class="card-subtitle mb-2 text-muted">01.09.2019 - 10.9.2023</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+    @foreach (var epxs in Model.Experiences)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="@epxs.CompanyLogoUrl" class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@epxs.CompanyName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@epxs.StartDate.ToString("dd.MM.yyyy") - @epxs.EndDate.ToString("dd.MM.yyyy")</h6>
+                    <p class="card-text">@epxs.JobDescription</p>
+                </div>
 
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">Website</a>
+                <div class="card-footer">
+                    <a href="@epxs.WebsiteUrl" class="btn btn-primary">Website</a>
+                </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    }
 </div>
 
 

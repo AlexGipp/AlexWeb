@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace PersonalWebsite.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly IConfiguration _config;
@@ -28,25 +28,28 @@ namespace PersonalWebsite.Controllers
         {
             var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
+            if(userId != "33844665")
+                return Unauthorized();
+            
             string key = _config.GetValue<string>("Jwt:EncryptionKey");
             string issuer = _config.GetValue<string>("Jwt:Issuer");
             string audience = _config.GetValue<string>("Jwt:Audience");
-            
+
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            
+
             var permClaims = new List<Claim>();
             permClaims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             permClaims.Add(new Claim("githubId", userId));
-            
+
             var token = new JwtSecurityToken(
                 issuer,
                 audience,
                 permClaims,
-                expires: DateTime.Now.AddDays(7),
-                signingCredentials: credentials
-                );
-            
+                signingCredentials: credentials,
+                expires: DateTime.Now.AddYears(17)
+            );
+
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
             return new

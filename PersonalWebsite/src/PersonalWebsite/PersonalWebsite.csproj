@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\PersonalWebsite.Database\PersonalWebsite.Database.csproj" />
       <ProjectReference Include="..\PersonalWebsite.Github\PersonalWebsite.Github.csproj" />
     </ItemGroup>
 

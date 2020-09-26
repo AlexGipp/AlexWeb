@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PersonalWebsite.Database.Models;
+using PersonalWebsite.Database.MongoDB;
 using PersonalWebsite.Github;
 using PersonalWebsite.Models;
 using PersonalWebsite.Tests.Models;
@@ -27,23 +29,21 @@ namespace PersonalWebsite.Controllers
         {
             var client = new GithubClient("AlexGipp");
             var repos = await client.GetPublicRepos(Type.Owner, Sort.Created);
+            
+            var dataService = new DataService("PortfolioWebsite");
+            var exps = await dataService.LoadAllRecordsAsync<Experience>("experience");
 
             var viewModel = new IndexViewModel
             {
-                Repos = (List<Repo>) repos.Where(x => x.Fork == false).ToList()
+                Repos = (List<Repo>) repos.Where(x => x.Fork == false).ToList(),
+                Experiences = exps
             };
 
             return View(viewModel);
         }
-        [Authorize(AuthenticationSchemes = "Github")] //todo remove oauth parts OwO
+
         public IActionResult Privacy()
         {
-            var id = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            var name = User.Claims.First(c => c.Type == ClaimTypes.Name).Value;
-            
-            if(id != "33844665")
-                return Unauthorized();
-            
             return View();
         }
 

@@ -23,9 +23,10 @@ namespace PersonalWebsite.Database.MongoDB
         public async Task UpsertRecordAsync<T>(string table, Guid id, T record)
         {
             var collection = _db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("Id", id);
 
             await collection.ReplaceOneAsync(
-                new BsonDocument("_id", id),
+                filter,
                 record,
                 new UpdateOptions {IsUpsert = true});
         }
